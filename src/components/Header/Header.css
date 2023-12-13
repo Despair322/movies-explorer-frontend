@@ -1,0 +1,126 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 18px 4px;
+}
+
+.header__registration {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  margin: 0 14px 0 auto;
+  @media (width > 700px) {
+    & {
+      font-size: 12px;
+    }
+  }
+}
+
+.header__login {
+  text-decoration: none;
+  background-color: rgba(61, 220, 132, 1);
+  padding: 5px 12px 5px 12px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 1);
+  &:hover {
+    opacity: 80%;
+  }
+  @media (width > 700px) {
+    & {
+      font-size: 12px;
+    }
+  }
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.header__link {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 44px;
+  & + & {
+    margin-left: 16px;
+  }
+  &:hover{
+    opacity: 80%;
+  }
+  @media (width<=900px) {
+    & {
+      display: none;
+    }
+  }
+}
+
+.header__profile {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  text-decoration: none;
+  margin-left: auto;
+  padding: 9px 36px 9px 11px;
+  border-radius: 40px;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: rgba(255, 255, 255, 1);
+  &:hover{
+    color: rgba(255, 255, 255, 0.8);
+  }
+  @media (width<=900px) {
+    & {
+      display: none;
+    }
+  }
+}
+
+.header__burger-span {
+  background-color: rgba(255, 255, 255, 1);
+  min-height: 2.5px;
+  min-width: 22px;
+  transition: 0.5s;
+  & + & {
+    margin-top: 6.5px;
+  }
+  @media (width>900px) {
+    & {
+      display: none;
+    }
+  }
+}
+
+.header__burger-label {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.header__burger {
+  display: none;
+  &:checked + .header__burger-label {
+    .header__burger-span {
+      opacity: 0;
+    }
+    .header__burger-span:first-child {
+      opacity: 1;
+      transform: rotate(405deg);
+    }
+    .header__burger-span:last-child {
+      opacity: 1;
+      transform: rotate(-405deg);
+      margin-top: -11px;
+    }
+  }
+}

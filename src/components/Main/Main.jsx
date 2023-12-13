@@ -4,8 +4,8 @@ import Footer from '../Footer/Footer'
 
 export default function Main() {
   return (<>
-    <Header />
-    <div>Main</div>
+    <Header loggedIn={false}/>
+    <main className='main'>Main</main>
     <Footer />
   </>)
 }
