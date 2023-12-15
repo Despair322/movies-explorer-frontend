@@ -6,10 +6,14 @@ import Register from '../Register/Register'
 import Login from '../Login/Login'
 
 import { Routes, Route } from 'react-router-dom';
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import SmthWrong from '../SmthWrong/SmthWrong'
 
 function App() {
   return (
     <div className="App">
+      <Header loggedIn={true} />
       <Routes>
         <Route path='/' element={
           <Main />
@@ -29,7 +33,11 @@ function App() {
         <Route path='signup' element={
           <Register />
         } />
+        <Route path='*' element={
+          <SmthWrong />
+        } />
       </Routes>
+      <Footer />
     </div>
   );
 }

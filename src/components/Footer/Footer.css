@@ -46,6 +46,9 @@
   line-height: 15px;
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
+  &:hover{
+    opacity: 80%;
+  }
   & + & {
     margin-top: 12px;
   }

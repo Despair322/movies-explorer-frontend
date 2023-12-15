@@ -1,0 +1,12 @@
+.movies {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  @media (width<=900px) {
+    margin-top: 74px;
+  }
+}
+
+.movies__devider {
+  min-height: 140px;
+}

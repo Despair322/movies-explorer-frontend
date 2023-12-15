@@ -1,11 +1,7 @@
-import React from 'react'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import "./Main.css"
 
 export default function Main() {
-  return (<>
-    <Header loggedIn={false}/>
+  return (
     <main className='main'>Main</main>
-    <Footer />
-  </>)
+  )
 }

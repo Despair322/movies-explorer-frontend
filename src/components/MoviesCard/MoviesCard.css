@@ -13,11 +13,11 @@
   width: 100%;
 }
 .movie-card__title {
+  grid-area: title;
   margin: 0;
   padding: 0;
   margin-top: 15px;
   margin-bottom: 29px;
-  grid-area: title;
   font-size: 12px;
   font-weight: 500;
   line-height: 15px;
@@ -25,9 +25,9 @@
 }
 
 .movie-card__button {
+  grid-area: button;
   margin-top: 10px;
   margin-bottom: 25px;
-  grid-area: button;
   min-width: 24px;
   min-height: 24px;
   background-color: rgba(49, 49, 49, 1);
@@ -35,15 +35,34 @@
   border-radius: 50%;
   &:hover {
     cursor: pointer;
+    opacity: 80%;
   }
 }
 
+.movie-card__button_status_unlike {
+  background-image: url("../../images/unlike-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 9px;
+}
+.movie-card__button_status_like {
+  background-image: url("../../images/like-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 9px;
+}
+.movie-card__button_status_delete {
+  background-image: url("../../images/delete-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .movie-card__time {
+  grid-area: time;
   margin: 0;
   padding: 0;
-  border-top: 1px solid rgba(66, 66, 66, 1);
   padding-top: 6px;
-  grid-area: time;
+  border-top: 1px solid rgba(66, 66, 66, 1);
   font-size: 10px;
   font-weight: 400;
   line-height: 12px;
