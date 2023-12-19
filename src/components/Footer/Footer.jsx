@@ -13,7 +13,7 @@ export default function Footer() {
               rel='noopener noreferrer' href="https://practicum.yandex.ru">Яндекс.Практикум</a>
             <a target='_blank' className='footer__link'
               rel='noopener noreferrer' href="https://github.com/Despair322">Github</a>
-            <p className='footer__date'>©2020</p>
+            <p className='footer__date'>©{new Date().getFullYear()}</p>
           </nav>
         </footer>
       } key={index} />

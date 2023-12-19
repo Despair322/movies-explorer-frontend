@@ -23,12 +23,16 @@
   }
 }
 
-.authorization__logo {
+.authorization__home{
   margin: 0 auto 50px;
   @media (width>700px) {
     margin-left: 0;
     margin-bottom: 40px;
   }
+}
+
+.authorization__logo {
+  display: block;
 }
 
 .authorization__title {
@@ -115,6 +119,7 @@
   }
   &:hover:enabled {
     opacity: 80%;
+    cursor: pointer;
   }
   &:disabled {
     background-color: hsla(0, 0%, 97%, 1);

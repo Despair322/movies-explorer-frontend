@@ -7,7 +7,9 @@ export default function Authorization({ title, submitText, children }) {
     const location = useLocation();
     return (
         <div className='authorization'>
-            <img src={logo} alt="логотип" className='authorization__logo' />
+            <Link to="/" className='authorization__home'>
+                <img src={logo} alt="логотип" className='authorization__logo' />
+            </Link>
             <h1 className='authorization__title'>{title}</h1>
             <form action="#" className='authorization__form'>
                 {children}

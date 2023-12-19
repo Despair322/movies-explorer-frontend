@@ -119,6 +119,7 @@
   }
   &:hover:enabled {
     opacity: 80%;
+    cursor: pointer;
   }
   &:disabled {
     background-color: hsla(0, 0%, 97%, 1);

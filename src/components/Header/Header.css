@@ -1,14 +1,20 @@
 .header {
+  
+  background-color: inherit;
+  
+}
+
+.header_blue {
+  background: rgba(7, 48, 66, 1);
+}
+
+.header__container{
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   padding: 18px 14px;
   box-sizing: border-box;
-  background-color: inherit;
-  @media (width<=900px) {
-    z-index: 2;
-    position: sticky;
-    top: 0;
-  }
   @media (width>700px) {
     padding-left: 30px;
     padding-right: 30px;
@@ -17,10 +23,6 @@
     padding-left: 70px;
     padding-right: 70px;
   }
-}
-
-.header_blue {
-  background: rgba(7, 48, 66, 1);
 }
 
 .header__home {

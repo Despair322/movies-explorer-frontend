@@ -47,9 +47,6 @@
   border-bottom-left-radius: 9px;
   box-shadow: none;
   border: none;
-  &:focus {
-    outline: none;
-  }
   @media (width>700px) {
     padding-top: 26px;
     padding-left: 26px;
@@ -145,6 +142,9 @@
   color: rgba(255, 255, 255, 1);
   @media (width>700px) {
     font-size: 13px;
+  }
+  &:hover{
+    cursor: pointer;
   }
 }
 
