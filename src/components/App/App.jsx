@@ -10,9 +10,11 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import SmthWrong from '../SmthWrong/SmthWrong'
 
+import './App.css'
+
 function App() {
   return (
-    <div className="App">
+    <div className={`App `}>
       <Header loggedIn={true} />
       <Routes>
         <Route path='/' element={

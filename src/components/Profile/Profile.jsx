@@ -10,13 +10,16 @@ export default function Profile() {
             <form action="/" className="profile__form">
                 <label className="profile__label">
                     Имя
-                    <input type="text" name="name" className="profile__input" value={name}/>
+                    <input type="text" name="name" className="profile__input" value={name} />
                 </label>
                 <span className='profile__line'></span>
                 <label className="profile__label">
-                    Почта
+                    E-mail
                     <input type="text" name="email" className="profile__input" value={email} disabled />
                 </label>
+                <p className='profile__error'>
+                    При обновлении профиля произошла ошибка.
+                </p>
                 <button type="submit" className="profile__submit">Сохранить</button>
             </form>
 

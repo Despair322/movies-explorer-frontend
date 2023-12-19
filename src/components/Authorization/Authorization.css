@@ -6,33 +6,28 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 56px 30px 30px 30px;
+  padding: 56px 20px 30px;
   @media (width>700px) {
-    & {
-      margin: auto;
-      flex-grow: 0;
-      padding-top: 30px;
-      padding-left: 0;
-      padding-right: 0;
-      min-height: 620px;
-    }
+    margin: auto;
+    flex-grow: 0;
+    padding-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 620px;
   }
   @media (width>900px) {
-    & {
-      margin: 0 auto;
-      flex-grow: 1;
-      padding-top: 70px;
-      padding-bottom: 70px;
-    }
+    margin: 0 auto;
+    flex-grow: 1;
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 }
 
 .authorization__logo {
   margin: 0 auto 50px;
   @media (width>700px) {
-    & {
-      margin-left: 0;
-    }
+    margin-left: 0;
+    margin-bottom: 40px;
   }
 }
 
@@ -43,9 +38,8 @@
   font-size: 24px;
   line-height: 29px;
   @media (width>700px) {
-    & {
-      text-align: start;
-    }
+    text-align: start;
+    margin-bottom: 40px;
   }
 }
 
@@ -75,6 +69,7 @@
   padding: 0 0 10px 0;
   border: none;
   border-bottom: 1px solid hsla(0, 0%, 26%, 1);
+  color: rgba(255, 255, 255, 1);
   background-color: inherit;
   width: 100%;
 }
@@ -89,6 +84,16 @@
   margin-bottom: 6px;
 }
 
+.authorization__error {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: rgba(255, 0, 76, 1);
+  margin: auto 0 0 0;
+}
+
 .authorization__form-button {
   background-color: hsla(217, 89%, 61%, 1);
   font-size: 12px;
@@ -96,18 +101,17 @@
   line-height: 15px;
   text-align: center;
   color: hsla(0, 0%, 100%, 1);
-  margin: auto 30px 14px;
+  margin: 20px 0 14px;
   border-radius: 3px;
   border: 0px;
   padding: 15px 0;
 
   @media (width > 700px) {
-    & {
-      font-size: 14px;
-      line-height: 17px;
-      padding-top: 13px;
-      padding-bottom: 15px;
-    }
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 13px;
+    padding-bottom: 15px;
+    margin-bottom: 16px;
   }
   &:hover:enabled {
     opacity: 80%;
@@ -120,16 +124,21 @@
 
 .authorization__text {
   color: hsla(0, 0%, 55%, 1);
+  margin: 0;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   text-align: center;
-  margin: 0;
+  @media (width>700px) {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
 
 .authorization__link {
   color: hsla(217, 89%, 61%, 1);
   text-decoration: none;
+  margin-left: 3px;
   &:hover {
     opacity: 70%;
   }

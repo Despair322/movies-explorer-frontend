@@ -1,13 +1,16 @@
 import './SavedMovies.css'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
+import { cards } from '../../utils/consts'
+
 
 export default function Movies() {
+    console.log(cards);
     return (
-        <main className='movies'>
+        <main className='saved-movies'>
             <SearchForm />
-            <MoviesCardList />
-            <div className='movies__devider'></div>
+            <MoviesCardList cards={cards.filter((card) => card.liked)} deleteCards />
+            <div className='saved-movies__devider'></div>
         </main>
     )
 }

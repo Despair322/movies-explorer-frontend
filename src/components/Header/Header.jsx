@@ -1,14 +1,15 @@
 import logo from '../../images/logo.svg'
 import './Header.css'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import Navigation from '../Navigation/Navigation'
 
 export default function Header({ loggedIn }) {
+  const blueClass = (useLocation().pathname === '/') ? "header_blue" : null;
   return (
     <Routes>
       {["/", "/movies", "/saved-movies", "/profile"].map((path, index) =>
         <Route path={path} element={
-          <header className='header'>
+          <header className={`header ${blueClass}`}>
             <Link to="/" className='header__home'>
               <img src={logo} alt="логотип" className='header__logo' />
             </Link>

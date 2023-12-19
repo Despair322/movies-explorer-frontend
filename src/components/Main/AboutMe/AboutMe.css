@@ -1,0 +1,135 @@
+.about-me {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1280px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 70px 14px 0;
+  @media (width>700px) {
+    padding: 90px 50px 0;
+  }
+  @media (width>900px) {
+    padding: 110px 70px 0;
+  }
+
+  @media (width>660px) {
+    display: grid;
+    column-gap: 24px;
+    grid-template-areas:
+      "header header header"
+      "name empty photo"
+      "subtitle empty photo"
+      "text empty photo"
+      "link empty photo";
+    grid-template-columns: minmax(min-content, 600px) auto 255px;
+    grid-template-rows: auto auto auto max-content;
+  }
+  @media (width>860px) {
+    grid-template-columns: minmax(min-content, 600px) auto 270px;
+  }
+}
+
+.about-me__header-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: header;
+  @media (width>660px) {
+    margin-bottom: 66px;
+  }
+}
+
+.about-me__photo {
+  display: block;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 255/307;
+  @media (width>660px) {
+    grid-area: photo;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.about-me__name {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  @media (width>660px) {
+    grid-area: name;
+    max-width: 600px;
+    font-size: 40px;
+    line-height: 40px;
+  }
+  @media (width>860px) {
+    font-size: 50px;
+    line-height: 58px;
+  }
+}
+
+.about-me__subtitle {
+  margin: 20px 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  @media (width>660px) {
+    grid-area: subtitle;
+    margin: 16px 0 20px 0;
+    max-width: 600px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  @media (width>860px) {
+    font-size: 18px;
+    line-height: 20px;
+    margin: 18px 0 26px 0;
+  }
+}
+
+.about-me__text {
+  margin: 0;
+  margin-bottom: 40px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  @media (width>660px) {
+    grid-area: text;
+    max-width: 600px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  @media (width>860px) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+.about-me__link {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  @media (width>660px) {
+    grid-area: link;
+  }
+  &:hover {
+    opacity: 70%;
+  }
+}

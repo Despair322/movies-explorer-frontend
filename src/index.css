@@ -1,7 +1,2 @@
 @import url("./vendor/normalize/normalize.css");
 @import url("./vendor/fonts/fonts.css");
-@import url("./components/App/App.css");
-
-body {
-  background-color: hsl(0, 0%, 13%, 1);
-}

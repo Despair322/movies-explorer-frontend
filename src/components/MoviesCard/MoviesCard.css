@@ -5,12 +5,16 @@
     "img img"
     "title button"
     "time time";
+  &:hover .movie-card__button_status_delete {
+    opacity: 100%;
+  }
 }
 
 .movie-card__image {
   grid-area: img;
   object-fit: cover;
   width: 100%;
+  aspect-ratio: 339/190;
 }
 .movie-card__title {
   grid-area: title;
@@ -33,9 +37,10 @@
   background-color: rgba(49, 49, 49, 1);
   border: 0;
   border-radius: 50%;
+
   &:hover {
     cursor: pointer;
-    opacity: 80%;
+    opacity: 80% !important;
   }
 }
 
@@ -55,6 +60,10 @@
   background-image: url("../../images/delete-button.svg");
   background-repeat: no-repeat;
   background-position: center;
+  opacity: 0%;
+  @media only screen and (width<700px) {
+    opacity: 100%;
+  }
 }
 
 .movie-card__time {
@@ -67,4 +76,8 @@
   font-weight: 400;
   line-height: 12px;
   color: rgba(139, 139, 139, 1);
+  @media (width>700px) {
+    font-size: 11px;
+    line-height: 13px;
+  }
 }

@@ -11,6 +11,9 @@ export default function Authorization({ title, submitText, children }) {
             <h1 className='authorization__title'>{title}</h1>
             <form action="#" className='authorization__form'>
                 {children}
+                <p className='authorization__error'>
+                    При обновлении профиля произошла ошибка.
+                </p>
                 <button type="submit" className='authorization__form-button'>{submitText}</button>
                 {location.pathname === "/signup" ?
                     <p className='authorization__text'>Уже зарегистрированы? <Link to="/signin" className='authorization__link'>Войти</Link></p>

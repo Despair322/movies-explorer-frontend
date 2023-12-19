@@ -1,0 +1,77 @@
+.promo {
+  background: rgba(7, 48, 66, 1);
+  padding-top: 183px;
+  padding-bottom: 40px;
+  @media (width>700px) {
+    padding-top: 300px;
+    padding-bottom: 70px;
+  }
+  @media (width>900px) {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+}
+
+.promo__wrapper {
+  max-width: 1280px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  @media (width>900px) {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+
+.promo__title-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+  @media (width>700px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media (width>900px) {
+    padding: 0;
+  }
+}
+
+.promo__title {
+  text-wrap: balance;
+  margin: 0;
+  text-align: center;
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 39px;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 1);
+  @media (width>700px) {
+    font-size: 40px;
+    line-height: 52px;
+  }
+  @media (width>900px) {
+    text-align: start;
+    max-width: 624px;
+  }
+}
+
+.promo__image {
+  margin: 60px auto 0;
+  display: block;
+  min-height: 230px;
+  max-width: 680px;
+  background-image: url("../../../images/landing-logo.svg");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  @media (width>700px) {
+    margin-top: 140px;
+  }
+  @media (width>900px) {
+    margin-top: 102px;
+    margin-left: auto;
+    margin-right: 0;
+    min-height: 244px;
+    max-width: 722px;
+  }
+}
