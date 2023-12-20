@@ -16,7 +16,7 @@ export default function Profile() {
             <form action="/" className="profile__form" onSubmit={handleProfileEdit}>
                 <label className="profile__label">
                     Имя
-                    <input type="text" name="name" className="profile__input" value={name} placeholder='Имя' min={2} maxLength={30}/>
+                    <input type="text" name="name" className="profile__input" value={name} placeholder='Имя' minLength={2} maxLength={30}/>
                 </label>
                 <span className='profile__line'></span>
                 <label className="profile__label">

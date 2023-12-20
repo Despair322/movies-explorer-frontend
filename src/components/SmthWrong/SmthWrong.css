@@ -52,7 +52,7 @@
   border: none;
   margin-bottom: 30px;
   &:hover {
-    opacity: 80%;
+    opacity: 70%;
     cursor: pointer;
   }
   @media (width>560px) {

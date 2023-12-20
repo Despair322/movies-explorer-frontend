@@ -32,6 +32,9 @@
 
 .header__logo {
   display: block;
+  &:hover{
+    opacity: 80%;
+  }
 }
 
 .header__registration {

@@ -2,7 +2,7 @@ import './SearchForm.css'
 
 export default function SearchForm() {
     return (<>
-        <formm class="searchform">
+        <form class="searchform">
             <input className="searchform__input" type="text" placeholder="Фильм" id='search' />
             <div className='searchform__search-container'><button className='searchform__search-button'>Найти</button> </div>
             <div className='searchform__line-container'><span className='searchform__line'></span></div>
@@ -13,7 +13,7 @@ export default function SearchForm() {
                     Короткометражки
                 </label>
             </div>
-        </formm>
+        </form>
     </>
     )
 }

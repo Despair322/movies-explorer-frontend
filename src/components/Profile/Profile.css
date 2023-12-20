@@ -6,8 +6,8 @@
   margin-top: 70px;
   padding-left: 20px;
   padding-right: 20px;
-  @media (900px>width>700px) {
-    margin-top: 240px;
+  @media (width>700px) {
+    margin-top: 234px;
     margin-bottom: 269px;
     padding-left: 0px;
     padding-right: 0px;
@@ -39,6 +39,13 @@
   display: none;
   &:checked {
     & + .profile__form {
+      margin-bottom: 379px;
+      @media (width>700px) {
+        margin-bottom: 210px;
+      }
+      @media (width>900px) {
+        margin-bottom: 220px;
+      }
       .profile__submit,
       .profile__error {
         display: block;
@@ -55,10 +62,13 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  flex-grow: 1;
   box-sizing: border-box;
   max-width: 410px;
   width: 100%;
+  flex-grow: 1;
+  @media (width>700px) {
+    flex-grow: 0;
+  }
 }
 
 .profile__label {
@@ -88,7 +98,7 @@
 }
 
 .profile__error {
-  margin: auto 0 0 0;
+  margin: 379px 0 0 0;
   font-size: 11px;
   font-weight: 400;
   line-height: 13px;
@@ -96,6 +106,12 @@
   text-align: center;
   color: rgba(255, 0, 76, 1);
   display: none;
+  @media (width>700px) {
+    margin-top: 210px;
+  }
+  @media (width>900px) {
+    margin-top: 220px;
+  }
 }
 
 .profile__submit {
@@ -133,6 +149,7 @@
   line-height: 15px;
   text-align: center;
   color: rgba(255, 255, 255, 1);
+  margin: 0;
   margin-bottom: 16px;
   &:hover {
     opacity: 80%;
@@ -141,9 +158,10 @@
   @media (width>700px) {
     font-size: 13px;
     line-height: 16px;
-  }
-  @media (900px >= width > 700px) {
     margin-top: 210px;
+  }
+  @media (width > 900px) {
+    margin-top: 220px;
   }
 }
 

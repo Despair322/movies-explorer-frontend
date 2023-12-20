@@ -12,11 +12,10 @@ export default function Navigation() {
     return (
         <nav className='navigation'>
             <button type="button" onClick={handleBurgerClick} className='navigation__burger-button'>
-                <label className="navigation__burger-label">
-                    <span className={`navigation__burger-span ${isOpen ? "navigation__burger-span_open" : ""}`}></span>
-                    <span className={`navigation__burger-span ${isOpen ? "navigation__burger-span_open" : ""}`}></span>
-                    <span className={`navigation__burger-span ${isOpen ? "navigation__burger-span_open" : ""}`}></span>
-                </label></button>
+                <span className={`navigation__burger-span ${isOpen ? "navigation__burger-span_open" : ""}`}></span>
+                <span className={`navigation__burger-span ${isOpen ? "navigation__burger-span_open" : ""}`}></span>
+                <span className={`navigation__burger-span ${isOpen ? "navigation__burger-span_open" : ""}`}></span>
+            </button>
             <span className={`navigation__overlay ${isOpen ? "navigation__overlay_open" : ""}`}></span>
             <ul className={`navigation__list ${isOpen ? "navigation__list_open" : ""}`}>
                 <li className='navigation__list-item'>
