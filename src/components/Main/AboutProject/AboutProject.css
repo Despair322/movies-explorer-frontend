@@ -1,0 +1,134 @@
+.about-project {
+  max-width: 1280px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 70px 18px;
+  display: flex;
+  flex-direction: column;
+  @media (width>700px) {
+    padding: 90px 50px;
+  }
+  @media (width>900px) {
+    padding: 110px 70px;
+  }
+}
+
+.about-project__articles-container {
+  margin: 60px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  @media (width>700px) {
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 70px;
+    margin-bottom: 93px;
+  }
+  @media (width>900px) {
+    margin-bottom: 110px;
+    gap: 40px;
+  }
+}
+.about-project__article {
+  margin: 0;
+  padding: 0;
+  flex: 1 1 0px;
+}
+
+.about-project__subtitle {
+  margin: 0;
+  padding: 0;
+  text-wrap: balance;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+  @media (width>700px) {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 22px;
+  }
+  @media (width>900px) {
+    margin-bottom: 26px;
+  }
+}
+
+.about-project__text {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  @media (width>700px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  @media (width>900px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.about-project__timings {
+  display: grid;
+  grid-template-areas:
+    "back-weeks front-weeks"
+    "back-text front-text";
+  grid-template-columns: minmax(100px, 1fr) 4fr;
+  row-gap: 10px;
+  @media (width>700px) {
+    row-gap: 14px;
+  }
+}
+
+.about-project__week-text {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: center;
+  /* row-gap: 14px; */
+  padding-top: 11px;
+  padding-bottom: 11px;
+  @media (width>700px) {
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+}
+
+.about-project__week-text_position_back {
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(61, 220, 132, 1);
+  grid-area: back-weeks;
+}
+.about-project__week-text_position_front {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(48, 48, 48, 1);
+  grid-area: front-weeks;
+}
+
+.about-project__end-text {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: center;
+  color: rgba(160, 160, 160, 1);
+  @media (width>700px) {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.about-project__end-text_position_back {
+  grid-area: back-text;
+}
+
+.about-project__end-text_position_front {
+  grid-area: front-text;
+}

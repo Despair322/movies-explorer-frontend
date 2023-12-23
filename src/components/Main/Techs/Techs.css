@@ -1,0 +1,116 @@
+.techs {
+  max-width: 1280px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(39, 39, 39, 1);
+  padding: 70px 18px;
+  @media (width>700px) {
+    padding: 90px 50px;
+  }
+  @media (width>900px) {
+    padding: 100px 70px;
+  }
+}
+
+.techs__subtitle {
+  margin: 60px 0 24px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  @media (width>700px) {
+    font-size: 50px;
+    line-height: 58px;
+    margin: 80px 0 22px;
+  }
+  @media (width>900px) {
+    margin: 90px 0 26px;
+  }
+}
+
+.techs__text {
+  max-width: 460px;
+  margin: 0 auto;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  @media (width>700px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  @media (width>900px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.techs__list {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0 20px;
+  margin-top: 50px;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, 84px);
+  @media (width>700px) {
+    margin-top: 83px;
+    padding: 0;
+  }
+  @media (width>900px) {
+    grid-template-columns: repeat(auto-fit, 90px);
+    margin-top: 100px;
+  }
+}
+
+.techs__list-item {
+  list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+.techs__link {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: -0.04em;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 84px;
+  height: 57px;
+  text-decoration: none;
+  background-color: rgba(48, 48, 48, 1);
+  padding: 5px;
+  box-sizing: border-box;
+  @media (width>900px) {
+    width: 90px;
+    height: 60px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.techs__link-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

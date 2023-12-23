@@ -1,0 +1,19 @@
+.main {
+}
+
+.main__wrapper {
+  max-width: 1280px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  @media (width>700px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media (width>900px) {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
