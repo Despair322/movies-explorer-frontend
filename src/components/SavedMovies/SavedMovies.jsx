@@ -29,7 +29,7 @@ export default function Movies() {
             })
             .catch(err => console.log(err))
             .finally(() => { setPreloaderIsActive(false) });
-        savedMoviesQuery.set(data);
+        savedMoviesQuery.set(data || '');
     }
 
     async function handleDelete(movie) {
