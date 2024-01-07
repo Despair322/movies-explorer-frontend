@@ -11,7 +11,7 @@ export default function MoviesCardList({ movies, onLike, preloaderIsActive }) {
                         <MoviesCard movie={movie}
                             onLike={onLike} key={movie.movieId}
                         />)
-                    : <p className='movie-card-list__no-movies'>Нет фильмов</p>
+                    : <p className='movie-card-list__no-movies'>Ничего не найдено</p>
                 :
                 <Preloader />
             }

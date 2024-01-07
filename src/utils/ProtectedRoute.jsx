@@ -1,12 +1,8 @@
-import React from 'react'
 import { Navigate } from 'react-router-dom';
 
-export default function ProtectedRoute({ onlyUnAuth, loggedIn, children }) {
-    if (onlyUnAuth && loggedIn) {
+export default function ProtectedRoute({ loggedIn, children }) {
+    if (!loggedIn) {
         return <Navigate to={{ pathname: '/' }} />
-    }
-    if (!onlyUnAuth && !loggedIn) {
-        return <Navigate to={{ pathname: '/signin' }} />
     }
     return children;
 }

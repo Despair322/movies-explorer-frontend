@@ -59,7 +59,11 @@ function App() {
   async function handleRegister(dataLogin) {
     return authApi.register(dataLogin)
       .then(res => {
-        navigate('/login')
+        return authApi.authorize({email: dataLogin.email, password: dataLogin.password})
+          .then(res => {
+            setLoggedIn(true)
+            navigate('/')
+          })
       })
   }
 
@@ -91,9 +95,7 @@ function App() {
         <Header loggedIn={loggedIn} />
         <Routes>
           <Route path='/' element={
-            <ProtectedRoute loggedIn={loggedIn}>
-              <Main />
-            </ProtectedRoute>
+            <Main />
           } />
           <Route path='/movies' element={
             <ProtectedRoute loggedIn={loggedIn}>
@@ -114,12 +116,12 @@ function App() {
           } />
 
           <Route path='/signin' element={
-            <ProtectedRoute loggedIn={loggedIn} onlyUnAuth>
+            <ProtectedRoute loggedIn={!loggedIn}>
               <Login onLogin={handleLogin} />
             </ProtectedRoute>
           } />
           <Route path='signup' element={
-            <ProtectedRoute loggedIn={loggedIn} onlyUnAuth>
+            <ProtectedRoute loggedIn={!loggedIn}>
               <Register onRegister={handleRegister} />
             </ProtectedRoute>
           } />
