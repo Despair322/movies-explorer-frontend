@@ -1,4 +1,4 @@
-const { REACT_APP_API_URL = 'api.movie-explorer.dymov.nomoredomainsmonster.ru' } = process.env;
+const { REACT_APP_API_URL = 'https://api.movie-explorer.dymov.nomoredomainsmonster.ru' } = process.env;
 
 function checkResponse(res) {
     return res.ok ? res.json() : res.json()
