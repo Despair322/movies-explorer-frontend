@@ -45,10 +45,11 @@ export default function Movies() {
     }, [])
 
     function calculateOutput() {
+        console.log(params);
         return params.one ? 5 + (2 * outputRows)
-            : params.two ? 6 + (4 * outputRows)
-                : params.three ? 6 + (3 * outputRows)
-                    : 8 + (4 * outputRows);
+            : params.two ? 8 + (4 * outputRows)
+                : params.three ? 12 + (3 * outputRows)
+                    : 16 + (4 * outputRows);
     }
 
     async function handleSearch(data) {
@@ -74,7 +75,7 @@ export default function Movies() {
                             }))
                         })
                         .catch(err => {
-                            console.log('оч плохо');
+                            // console.log('оч плохо');
                             setMovies(proxyFiltredMovies.map(movie => {
                                 return ({
                                     ...movie,
@@ -91,6 +92,7 @@ export default function Movies() {
         else {
                         console.log('пустой запрос');
                     }
+                    setOuputRows(0);
     }
 
         async function toggleLike(movie, setStatus) {
