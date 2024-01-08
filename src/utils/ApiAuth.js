@@ -1,3 +1,4 @@
+// require('dotenv').config()
 const { REACT_APP_API_URL = 'https://api.movie-explorer.dymov.nomoredomainsmonster.ru' } = process.env;
 
 function checkResponse(res) {

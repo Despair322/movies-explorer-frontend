@@ -15,14 +15,12 @@ class customLocalStorage {
 
 export const moviesQuery = new customLocalStorage('moviesQuery');
 export const moviesShort = new customLocalStorage('moviesShort');
-export const savedMoviesQuery = new customLocalStorage('savedMoviesQuery');
-export const savedMoviesShort = new customLocalStorage('savedMoviesShort');
+export const moviesStorage = new customLocalStorage('movies');
 export const loggedInStorage = new customLocalStorage('loggedIn');
 
 export function eraseAll() {
     moviesQuery.remove()
     moviesShort.remove()
-    savedMoviesQuery.remove()
-    savedMoviesShort.remove()
+    moviesStorage.remove()
     loggedInStorage.remove()
 }

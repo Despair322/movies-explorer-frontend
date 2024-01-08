@@ -2,6 +2,8 @@ import * as validation from '../../utils/validation';
 import Authorization from '../Authorization/Authorization'
 
 export default function Login({ onLogin }) {
+    
+
     const email = validation.useInput('', { isEmpty: true, minLength: 3, maxLength: 30, isEmail: true });
     const password = validation.useInput('', { minLength: 8, maxLength: 30, isEmpty: true });
 

@@ -52,7 +52,7 @@ function App() {
     return authApi.authorize(dataLogin)
       .then(res => {
         setLoggedIn(true)
-        navigate('/')
+        navigate('/movies')
       })
   }
 
@@ -62,7 +62,7 @@ function App() {
         return authApi.authorize({email: dataLogin.email, password: dataLogin.password})
           .then(res => {
             setLoggedIn(true)
-            navigate('/')
+            navigate('/movies')
           })
       })
   }
@@ -70,7 +70,7 @@ function App() {
   async function handleEditProfile(data) {
     return mainApi.setUserInfo(data)
       .then(res => {
-        return res;
+        setCurrentUser(res)
       });
   }
 

@@ -7,12 +7,13 @@ export default function Profile({ onExit, onEdit }) {
     const currentUser = useContext(CurrentUserContext);
 
 
-    const name = validation.useInput(currentUser.name || '', { isEmpty: true, minLength: 2, maxLength: 30, notOld: currentUser.name });
-    const email = validation.useInput(currentUser.email || '', { minLength: 3, maxLength: 30, isEmpty: true, isEmail: true, notOld: currentUser.email});
+    const name = validation.useInput(currentUser.name || '', { isEmpty: true, minLength: 2, maxLength: 30 });
+    const email = validation.useInput(currentUser.email || '', { minLength: 3, maxLength: 30, isEmpty: true, isEmail: true });
 
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [isInputsDisabled, setIsInputsDisabled] = useState(true);
     const [editionError, setEditionError] = useState('')
+
     useEffect(() => {
         if (currentUser.name) {
             name.setValue(currentUser.name);
@@ -20,35 +21,45 @@ export default function Profile({ onExit, onEdit }) {
         }
     }, [currentUser])
 
+
     const editButtonHandler = () => {
         setIsInputsDisabled(false);
     }
 
     const handleProfileEdit = (e) => {
         e.preventDefault();
+        setIsButtonDisabled(true);
         onEdit({ name: name.value, email: email.value })
             .then((res) => {
                 setIsInputsDisabled(true);
                 setEditionError('')
+                alert("Информация успешно изменена")
             })
             .catch((err) => {
                 setEditionError(err)
             })
+            .finally(() => {
+                setIsButtonDisabled(false);
+            })
     }
 
     useEffect(() => {
-        setIsButtonDisabled(!(email.isFormValid && name.isFormValid))
+        if (name.value === currentUser.name && email.value === currentUser.email)
+            setIsButtonDisabled(true)
+        else
+            setIsButtonDisabled(!(email.isFormValid && name.isFormValid));
     }, [name, email])
 
     return (
         <main className="profile">
+
             <h1 className="profile__title">Привет, {currentUser.name}!</h1>
             <form action="/" className="profile__form" onSubmit={handleProfileEdit}>
                 <label className="profile__label">
                     Имя
                     <input type="text" name="name"
                         className={`profile__input ${name.isDirty && name.validationError ? "profile__input_error" : ""}`}
-                        value={name.value} onChange={name.onChange} onBlur={name.onBlur} disabled={false}
+                        value={name.value} onChange={name.onChange} onBlur={name.onBlur} disabled={isInputsDisabled}
                         placeholder='Имя' min={2} maxLength={30} required formNoValidate />
                 </label>
                 <span className='profile__line'></span>
