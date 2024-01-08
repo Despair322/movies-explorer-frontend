@@ -13,8 +13,10 @@ export default function MoviesCard({ movie, onLike }) {
 
     return (
         <div className='movie-card'>
-            <img src={movie.image}
-                alt="Постер фильма" className='movie-card__image' />
+            <a target='_blank' className='movie-card__link'
+                rel='noopener noreferrer' href={movie.trailer}><img src={movie.image}
+                    alt="Постер фильма" className='movie-card__image' />
+            </a>
             <h2 className='movie-card__title'>{movie.nameRU}</h2>
             <button
                 className={`movie-card__button movie-card__button_status_${status}`}
