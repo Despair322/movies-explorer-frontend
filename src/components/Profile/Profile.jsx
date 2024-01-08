@@ -7,8 +7,8 @@ export default function Profile({ onExit, onEdit }) {
     const currentUser = useContext(CurrentUserContext);
 
 
-    const name = validation.useInput(currentUser.name || '', { isEmpty: true, minLength: 2, maxLength: 30 });
-    const email = validation.useInput(currentUser.email || '', { minLength: 3, maxLength: 30, isEmpty: true, isEmail: true });
+    const name = validation.useInput(currentUser.name || '', { isEmpty: true, minLength: 2, maxLength: 30, notOld: currentUser.name });
+    const email = validation.useInput(currentUser.email || '', { minLength: 3, maxLength: 30, isEmpty: true, isEmail: true, notOld: currentUser.email});
 
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [isInputsDisabled, setIsInputsDisabled] = useState(true);

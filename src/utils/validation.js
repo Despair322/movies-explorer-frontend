@@ -24,6 +24,10 @@ const useValidatiion = (value, validations) => {
                     if (!value)
                         newError = 'Поле не может быть пустым';
                     break;
+                case 'notOld':
+                    if(value === validation[validation])
+                        newError = `Данные не должны совпадать с изначальными`;
+                    break;
                 default:
                     console.log("unknown validator");
                     break;
