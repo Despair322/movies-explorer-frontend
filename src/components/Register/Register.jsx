@@ -1,18 +1,15 @@
 import * as validation from '../../utils/validation';
 import Authorization from '../Authorization/Authorization'
-import { useNavigate } from "react-router-dom";
 
 export default function Register({ onRegister }) {
     const name = validation.useInput('', { minLength: 2, maxLength: 30, isEmpty: true });
     const email = validation.useInput('', { isEmpty: true, minLength: 3, maxLength: 30, isEmail: true });
     const password = validation.useInput('', { minLength: 8, maxLength: 30, isEmpty: true });
-    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
         return onRegister({ name: name.value, email: email.value, password: password.value })
             .then(data => {
-                navigate("/signin")
                 return data;
             })
     }

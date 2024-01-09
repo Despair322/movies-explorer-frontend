@@ -53,13 +53,14 @@ function App() {
     return authApi.authorize(dataLogin)
       .then(res => {
         setLoggedIn(true)
+        console.log('навигация на мувис');
         navigate('/movies')
       })
   }
 
   async function handleRegister(dataLogin) {
     return authApi.register(dataLogin)
-      .then(res => {
+      .then((res) => {
         return authApi.authorize({email: dataLogin.email, password: dataLogin.password})
           .then(res => {
             setLoggedIn(true)
