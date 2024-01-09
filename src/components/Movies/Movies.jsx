@@ -82,7 +82,6 @@ export default function Movies() {
         if (!movies || movies.length === 0) {
             await moviesApi.getMovies()
                 .then(async (moviesFromApi) => {
-                    console.log("получение карточек");
                     const proxyMovies = moviesFromApi.map(item => movieProxy(item));
                     await mainApi.getMovies()
                         .then(res => {
@@ -109,7 +108,6 @@ export default function Movies() {
                         })
                 })
         }
-        console.log('после получения карточек');
         setQuery(data);
         moviesQuery.set(data);
         setOuputRows(0);
@@ -185,7 +183,8 @@ export default function Movies() {
             />
             <MyCustomWrapper ref={containerRef}>
                 <MoviesCardList movies={filtredMovies.slice(0, calculateOutput())}
-                    onLike={toggleLike} preloaderIsActive={preloaderIsActive} />
+                    onLike={toggleLike} preloaderIsActive={preloaderIsActive} 
+                    freshStart={!movies || movies.length === 0} freshStartText={"Найдите фильмы!"}/>
             </MyCustomWrapper>
             <div className='movies__devider'>
                 {filtredMovies.length > calculateOutput() ?

@@ -82,7 +82,8 @@ export default function Movies() {
                 onShort={handleShortChange}
             />
             <MoviesCardList movies={filtredSavedMovies}
-                onLike={handleDelete} preloaderIsActive={preloaderIsActive} />
+                onLike={handleDelete} preloaderIsActive={preloaderIsActive} 
+                freshStart={!savedMovies || savedMovies.length === 0 } freshStartText={"Нет сохраненных фильмов"}/>
             <div className='saved-movies__devider'></div>
         </main>
     )
