@@ -45,6 +45,7 @@ function App() {
       .catch(err => {
         setLoggedIn(false)
         setCurrentUser({});
+        navigate('/')
       })
   }, [])
 

@@ -1,7 +1,6 @@
 import { SHORTDURATION } from "./consts";
 
 export function movieFilter(movies, options) {
-    // console.log(options);
     if (shortStringToBool(options.short))
         return movies.filter(
             movie => movie.duration <= SHORTDURATION && movie.nameRU.toLowerCase().includes(options.query.toLowerCase())

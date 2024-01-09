@@ -9,6 +9,7 @@ import { mainApi } from '../../utils/MainApi';
 import { movieProxy } from '../../utils/Proxy';
 import { movieFilter } from '../../utils/MovieFilter';
 import { CONTAINERQUERY, COUNTOFCARDS } from '../../utils/consts';
+import Preloader from '../Preloader/Preloader';
 
 const MyCustomWrapper = React.forwardRef((props, ref) => {
     return <div ref={ref} >{props.children}</div>
@@ -25,6 +26,8 @@ export default function Movies() {
     const [params, containerRef] = useContainerQuery(CONTAINERQUERY);
     const [preloaderIsActive, setPreloaderIsActive] = useState(false)
     const [outputRows, setOuputRows] = useState(0);
+
+    const [isNeedRefilter, setIsNeedRefilter] = useState(false);
 
     useEffect(() => {
         setPreloaderIsActive(true);
@@ -52,11 +55,22 @@ export default function Movies() {
         setPreloaderIsActive(false);
     }, [])
 
-
+    useEffect(() => {
+        if (isNeedRefilter) {
+            setFiltredMovies(movieFilter(movies,
+                { query: query, short: short }));
+            setIsNeedRefilter(false);
+            setPreloaderIsActive(false)
+        }
+    }, [isNeedRefilter])
 
     useEffect(() => {
         moviesStorage.set(JSON.stringify(movies));
     }, [movies])
+
+    useEffect(() => {
+        moviesQuery.set(query);
+    }, [query])
 
     useEffect(() => {
         moviesFiltredStorage.set(JSON.stringify(filtredMovies));
@@ -79,6 +93,11 @@ export default function Movies() {
 
 
     async function handleSearch(data) {
+        setPreloaderIsActive(true)
+
+        setQuery(data);
+        setOuputRows(0);
+
         if (!movies || movies.length === 0) {
             await moviesApi.getMovies()
                 .then(async (moviesFromApi) => {
@@ -108,11 +127,7 @@ export default function Movies() {
                         })
                 })
         }
-        setQuery(data);
-        moviesQuery.set(data);
-        setOuputRows(0);
-        setFiltredMovies(movieFilter(movies,
-            { query: data, short: short }));
+        setIsNeedRefilter(true)
     }
 
     function handleShortChange(state) {
@@ -142,7 +157,6 @@ export default function Movies() {
             handleLike(movie)
                 .then(res => {
                     movie.id = res._id
-                    console.log('установка лайка');
                     setStatus('like');
                     movies.map(item => {
                         if (movie.movieId === item.movieId) {
@@ -183,8 +197,8 @@ export default function Movies() {
             />
             <MyCustomWrapper ref={containerRef}>
                 <MoviesCardList movies={filtredMovies.slice(0, calculateOutput())}
-                    onLike={toggleLike} preloaderIsActive={preloaderIsActive} 
-                    freshStart={!movies || movies.length === 0} freshStartText={"Найдите фильмы!"}/>
+                    onLike={toggleLike} preloaderIsActive={preloaderIsActive}
+                    freshStart={!movies || movies.length === 0} freshStartText={"Найдите фильмы!"} />
             </MyCustomWrapper>
             <div className='movies__devider'>
                 {filtredMovies.length > calculateOutput() ?

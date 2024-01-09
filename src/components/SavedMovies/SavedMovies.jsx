@@ -35,7 +35,7 @@ export default function Movies() {
         setFiltredSavedMovies(movieFilter(savedMovies,
             { query: savedMoviesQuery, short: savedMoviesShort }));
 
-    }, [savedMoviesQuery, savedMoviesShort, savedMovies])
+    }, [savedMoviesQuery, savedMoviesShort])
 
 
     async function handleSearch(data) {
