@@ -62,6 +62,7 @@ function App() {
         return authApi.authorize({email: dataLogin.email, password: dataLogin.password})
           .then(res => {
             setLoggedIn(true)
+            console.log('навигация на мувис');
             navigate('/movies')
           })
       })

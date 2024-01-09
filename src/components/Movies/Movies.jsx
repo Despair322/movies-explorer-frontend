@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Movies.css'
 import SearchForm from '../SearchForm/SearchForm'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
-import { moviesQuery, moviesShort, moviesStorage } from "../../utils/LocalStorage";
+import { moviesFiltredStorage, moviesQuery, moviesShort, moviesStorage } from "../../utils/LocalStorage";
 import { moviesApi } from '../../utils/MoviesApi'
 import { useContainerQuery } from 'react-container-query';
 import { mainApi } from '../../utils/MainApi';
@@ -31,11 +31,60 @@ export default function Movies() {
         const localMovies = JSON.parse(moviesStorage.get());
         if (localMovies && localMovies.length > 0)
             setMovies(localMovies)
-        else {
-            moviesApi.getMovies()
-                .then((moviesFromApi) => {
+
+
+        const localQuery = moviesQuery.get();
+        if (localQuery) {
+            setQuery(localQuery);
+        }
+
+        const localShort = moviesShort.get();
+
+        if (localShort) {
+
+            setShort(localShort ? localShort === 'false' ? false : true : false);
+        }
+        const localFiltredMovies = JSON.parse(moviesFiltredStorage.get());
+        if (localFiltredMovies) {
+            setFiltredMovies(localFiltredMovies);
+        }
+
+        setPreloaderIsActive(false);
+    }, [])
+
+
+
+    useEffect(() => {
+        moviesStorage.set(JSON.stringify(movies));
+    }, [movies])
+
+    useEffect(() => {
+        moviesFiltredStorage.set(JSON.stringify(filtredMovies));
+    }, [filtredMovies])
+
+    // useEffect(() => {
+    //     console.log('фильтрация карточек');
+    //     setPreloaderIsActive(true);
+    //     setFiltredMovies(movieFilter(movies,
+    //         { query: query, short: short }));
+    //     setPreloaderIsActive(false);
+    // }, [query])
+
+    function calculateOutput() {
+        return params.one ? COUNTOFCARDS.one.start + (COUNTOFCARDS.one.add * outputRows)
+            : params.two ? COUNTOFCARDS.two.start + (COUNTOFCARDS.two.add * outputRows)
+                : params.three ? COUNTOFCARDS.three.start + (COUNTOFCARDS.three.add * outputRows)
+                    : COUNTOFCARDS.four.start + (COUNTOFCARDS.four.add * outputRows);
+    }
+
+
+    async function handleSearch(data) {
+        if (!movies || movies.length === 0) {
+            await moviesApi.getMovies()
+                .then(async (moviesFromApi) => {
+                    console.log("получение карточек");
                     const proxyMovies = moviesFromApi.map(item => movieProxy(item));
-                    mainApi.getMovies()
+                    await mainApi.getMovies()
                         .then(res => {
                             const likedIDs = res.map(movie => movie.movieId);
                             setMovies(proxyMovies.map(movie => {
@@ -60,52 +109,20 @@ export default function Movies() {
                         })
                 })
         }
-
-        const localQuery = moviesQuery.get();
-        if (localQuery) {
-            setQuery(localQuery);
-        }
-
-        const localShort = moviesShort.get();
-
-        if (localShort) {
-
-            setShort(localShort ? localShort === 'false' ? false : true : false);
-        }
-        setPreloaderIsActive(false);
-    }, [])
-
-
-
-    useEffect(() => {
-        moviesStorage.set(JSON.stringify(movies));
-    }, [movies])
-
-
-    useEffect(() => {
-        setPreloaderIsActive(true);
-        setFiltredMovies(movieFilter(movies,
-            { query: query, short: short }));
-        setPreloaderIsActive(false);
-    }, [query, short])
-
-    function calculateOutput() {
-        return params.one ? COUNTOFCARDS.one.start + (COUNTOFCARDS.one.add * outputRows)
-            : params.two ? COUNTOFCARDS.two.start + (COUNTOFCARDS.two.add * outputRows)
-                : params.three ? COUNTOFCARDS.three.start + (COUNTOFCARDS.three.add * outputRows)
-                    : COUNTOFCARDS.four.start + (COUNTOFCARDS.four.add * outputRows);
-    }
-
-    async function handleSearch(data) {
+        console.log('после получения карточек');
         setQuery(data);
         moviesQuery.set(data);
         setOuputRows(0);
+        setFiltredMovies(movieFilter(movies,
+            { query: data, short: short }));
     }
 
     function handleShortChange(state) {
         const shortStatus = state ? state === 'false' ? false : true : false;
         setShort(shortStatus);
         moviesShort.set(shortStatus);
+        setFiltredMovies(movieFilter(movies,
+            { query: query, short: state }));
     }
 
     async function toggleLike(movie, setStatus) {
