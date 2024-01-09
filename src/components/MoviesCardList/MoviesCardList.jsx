@@ -1,11 +1,21 @@
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard'
+import Preloader from '../Preloader/Preloader'
 
-export default function MoviesCardList({ cards, deleteCards }) {
-    cards.map(card => console.log(card.liked ? "liked" : "unliked"))
+export default function MoviesCardList({ movies, onLike, preloaderIsActive, freshStart, freshStartText }) {
     return (
-        <div className='movies-card-list'>
-            {cards.map((card) => <MoviesCard card={card} status={deleteCards ? 'delete' : card.liked ? "like" : "unlike"} />)}
+        <div className={'movies-card-list ' + (movies.length === 0 ? 'movie-card-list_empty' : '')}>
+            {!preloaderIsActive ?
+                movies.length > 0 ?
+                    movies.map((movie) =>
+                        <MoviesCard movie={movie}
+                            onLike={onLike} key={movie.movieId}
+                        />)
+                    : <p className='movie-card-list__no-movies'>{freshStart ? freshStartText : "Ничего не найдено"}</p>
+                :
+                <Preloader />
+            }
+
         </div>
     )
 }

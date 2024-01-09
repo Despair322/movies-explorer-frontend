@@ -61,6 +61,10 @@
   }
 }
 
+.searchform__input_invalid::placeholder {
+  color: rgb(170, 44, 44);
+} 
+
 .searchform__search-container {
   grid-area: button;
   padding-right: 19px;

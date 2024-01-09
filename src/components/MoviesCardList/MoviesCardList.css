@@ -5,8 +5,10 @@
   grid-template-columns: 1fr;
   row-gap: 34px;
   column-gap: 20px;
+  /* min-height: 300px; */
+    flex-grow: 1;
 
-  @container (width>460px) {
+  @container (width>490px) {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     padding-top: 80px;
@@ -19,4 +21,14 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 38px;
   }
+}
+
+.movie-card-list_empty{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.movie-card-list__no-movies{
+  color: rgba(255, 255, 255, 1);
 }
