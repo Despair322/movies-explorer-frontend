@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { re } from "./consts";
+import { RE } from "./consts";
 
 const useValidatiion = (value, validations) => {
     const [validationError, setValidationError] = useState('')
@@ -9,7 +9,7 @@ const useValidatiion = (value, validations) => {
         for (const validation in validations) {
             switch (validation) {
                 case 'isEmail':
-                    if (!value.toLowerCase().match(re))
+                    if (!value.toLowerCase().match(RE))
                         newError = 'Неправильный формат почты a@ya.ru';
                     break;
                 case 'minLength':

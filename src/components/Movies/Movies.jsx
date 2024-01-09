@@ -8,7 +8,7 @@ import { useContainerQuery } from 'react-container-query';
 import { mainApi } from '../../utils/MainApi';
 import { movieProxy } from '../../utils/Proxy';
 import { movieFilter } from '../../utils/MovieFilter';
-import { containerQuery, countOfCard } from '../../utils/consts';
+import { CONTAINERQUERY, COUNTOFCARDS } from '../../utils/consts';
 
 const MyCustomWrapper = React.forwardRef((props, ref) => {
     return <div ref={ref} >{props.children}</div>
@@ -22,7 +22,7 @@ export default function Movies() {
     const [query, setQuery] = useState('');
     const [short, setShort] = useState(false);
 
-    const [params, containerRef] = useContainerQuery(containerQuery);
+    const [params, containerRef] = useContainerQuery(CONTAINERQUERY);
     const [preloaderIsActive, setPreloaderIsActive] = useState(false)
     const [outputRows, setOuputRows] = useState(0);
 
@@ -90,10 +90,10 @@ export default function Movies() {
     }, [query, short])
 
     function calculateOutput() {
-        return params.one ? countOfCard.one.start + (countOfCard.one.add * outputRows)
-            : params.two ? countOfCard.two.start + (countOfCard.two.add * outputRows)
-                : params.three ? countOfCard.three.start + (countOfCard.three.add * outputRows)
-                    : countOfCard.three.start + (countOfCard.three.add * outputRows);
+        return params.one ? COUNTOFCARDS.one.start + (COUNTOFCARDS.one.add * outputRows)
+            : params.two ? COUNTOFCARDS.two.start + (COUNTOFCARDS.two.add * outputRows)
+                : params.three ? COUNTOFCARDS.three.start + (COUNTOFCARDS.three.add * outputRows)
+                    : COUNTOFCARDS.four.start + (COUNTOFCARDS.four.add * outputRows);
     }
 
     async function handleSearch(data) {

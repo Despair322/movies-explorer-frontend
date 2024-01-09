@@ -1,33 +1,35 @@
-const widths = {
+const WIDTH = {
     oneCard: 0,
     twoCards: 491,
     threeCards: 841,
     fourCards: 1041,
 }
 
-export const containerQuery = {
+export const CONTAINERQUERY = {
     'one': {
-        maxWidth: widths.twoCards - 1,
+        maxWidth: WIDTH.twoCards - 1,
     },
     'two': {
-        minWidth: widths.twoCards,
-        maxWidth: widths.threeCards - 1,
+        minWidth: WIDTH.twoCards,
+        maxWidth: WIDTH.threeCards - 1,
     },
     'three': {
-        minWidth: widths.threeCards,
-        maxWidth: widths.fourCards - 1,
+        minWidth: WIDTH.threeCards,
+        maxWidth: WIDTH.fourCards - 1,
     },
     'four': {
-        minWidth: widths.fourCards,
+        minWidth: WIDTH.fourCards,
     },
 };
 
-export const countOfCard = {
+export const COUNTOFCARDS = {
     one: { start: 5, add: 2, },
     two: { start: 8, add: 4, },
     three: { start: 12, add: 3, },
     four: { start: 16, add: 4 },
 }
 
-export const re =
+export const RE =
     /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+export const SHORTDURATION = 40;
